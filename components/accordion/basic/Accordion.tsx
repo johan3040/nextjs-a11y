@@ -8,11 +8,11 @@ export const Accordion = () => {
   return (
     <div>
       <p>Basic</p>
-      <ul className={css.list}>
+      <div className={css.list}>
         {accordionEntries.map((entry) => (
           <Item key={entry.id} entry={entry} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

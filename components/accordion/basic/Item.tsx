@@ -12,7 +12,7 @@ export const Item = ({ entry }: Props) => {
   const id = useId();
 
   return (
-    <li>
+    <div>
       <div
         className={css.button}
         onClick={() => setOpen((prev) => !prev)}
@@ -32,6 +32,6 @@ export const Item = ({ entry }: Props) => {
           </p>
         </div>
       </div>
-    </li>
+    </div>
   );
 };

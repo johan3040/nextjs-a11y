@@ -1,0 +1,36 @@
+.button {
+  display: flex;
+  background: lightgray;
+  justify-content: space-between;
+  border: 1px solid black;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  height: 48px;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 48px;
+}
+
+.openIcon {
+  rotate: 180deg;
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-in-out;
+}
+
+.panel.show {
+  grid-template-rows: 1fr;
+}
+
+.panel > * {
+  overflow: hidden;
+}
+
+.paragraph {
+  padding: 1rem;
+}

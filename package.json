@@ -3,19 +3,27 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start"
+    "start": "next start",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
     "classnames": "^2.3.2",
+    "highlight.js": "^11.9.0",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-highlight": "^0.15.0"
   },
   "engines": {
     "node": ">=18"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.8.1",
+    "@playwright/test": "^1.39.0",
     "@types/node": "^20.8.10",
-    "@types/react": "^18.2.34"
+    "@types/react": "^18.2.34",
+    "playwright": "^1.39.0",
+    "typescript": "5.2.2"
   }
 }

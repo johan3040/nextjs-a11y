@@ -1,7 +1,8 @@
+import { Html } from 'next/document';
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <Html lang="en">
       <body>{children}</body>
-    </html>
+    </Html>
   );
 }

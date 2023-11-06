@@ -14,7 +14,7 @@ export const Item = ({ entry }: Props) => {
 
   return (
     <li>
-      <div role="heading" aria-level={2}>
+      <div role="heading" aria-level={3}>
         <button
           type="button"
           id={headerId}
@@ -31,6 +31,7 @@ export const Item = ({ entry }: Props) => {
         role="region"
         aria-labelledby={headerId}
         hidden={!open}
+        aria-hidden={!open}
         className={classNames(css.panel, {
           [css.show]: open
         })}

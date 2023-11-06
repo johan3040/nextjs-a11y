@@ -36,3 +36,7 @@ img {
 body {
   padding: 1rem;
 }
+
+button {
+  height: 32px;
+}

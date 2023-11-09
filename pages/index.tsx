@@ -6,10 +6,15 @@ import { FormWrapper } from '../components/form/FormWrapper';
 const HomePage = ({ data }) => {
   return (
     <>
-      <h2>Hello: {JSON.parse(data).time}</h2>
-      <AccordionContainer />
-      <ToastWrapper />
-      <FormWrapper />
+      <header>
+        <h1 style={{ marginBottom: '1em' }}>Accessible components</h1>
+      </header>
+      <main style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <h2>Hello: {JSON.parse(data).time}</h2>
+        <AccordionContainer />
+        <ToastWrapper />
+        <FormWrapper />
+      </main>
     </>
   );
 };

@@ -13,19 +13,5 @@ import { Html } from 'next/document';
 hljs.registerLanguage('javascript', javascript);
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Head>
-        <title>Accessible accordion</title>
-        <meta property="og:title" content="Accessible accordion" key="title" />
-      </Head>
-
-      <header>
-        <h1 style={{ marginBottom: '1em' }}>Accessible components</h1>
-      </header>
-      <main style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Component {...pageProps} />
-      </main>
-    </>
-  );
+  return <Component {...pageProps} />;
 }

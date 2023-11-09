@@ -1,0 +1,42 @@
+name: Trigger auto deployment for nextjs-container-app
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ master ]
+    paths:
+    - '**'
+    - '.github/workflows/nextjs-container-app-AutoDeployTrigger-e40870ad-e577-47b9-8c3c-b2084caf126c.yml'
+
+  # Allow manual trigger 
+  workflow_dispatch:
+      
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.NEXTJSCONTAINERAPP_AZURE_CREDENTIALS }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: ${{ github.workspace }} 
+          registryUrl: johan3040.azurecr.io
+          registryUsername: ${{ secrets.NEXTJSCONTAINERAPP_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.NEXTJSCONTAINERAPP_REGISTRY_PASSWORD }}
+          containerAppName: nextjs-container-app
+          resourceGroup: DefaultResourceGroup-CUS
+          imageToBuild: johan3040.azurecr.io/nextjs-container-app:${{ github.sha }}
+          
+
+     
+

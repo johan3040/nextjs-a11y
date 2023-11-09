@@ -16,7 +16,7 @@
     "react-highlight": "^0.15.0"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18 <20"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.8.1",

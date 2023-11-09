@@ -1,8 +1,8 @@
 module.exports = {
-  output: 'export',
+  output: 'standalone',
   reactStrictMode: true,
-  /* i18n: {
+  i18n: {
     locales: ['en-US'],
     defaultLocale: 'en-US',
-  }, */
+  },
 }

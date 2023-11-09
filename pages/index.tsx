@@ -15,7 +15,7 @@ const HomePage = ({ data }) => {
         <h1 style={{ marginBottom: '1em' }}>Accessible components</h1>
       </header>
       <main style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <p>The time is: {JSON.parse(data).time}</p>
+        <p>According to the server, the time is: {JSON.parse(data).time}</p>
         <AccordionContainer />
         <ToastWrapper />
         <FormWrapper />

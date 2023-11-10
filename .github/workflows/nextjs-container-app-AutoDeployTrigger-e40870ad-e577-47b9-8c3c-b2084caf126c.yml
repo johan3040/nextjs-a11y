@@ -37,8 +37,8 @@ jobs:
           resourceGroup: DefaultResourceGroup-CUS
           imageToBuild: johan3040.azurecr.io/nextjs-container-app:${{ github.sha }}
         env:
-          GITHUB_ID: ${{ secrets.GH_ID }}
-          GITHUB_SECRET: ${{ secrets.GH_SECRET }}
+          GH_ID: ${{ secrets.GH_ID }}
+          GH_SECRET: ${{ secrets.GH_SECRET }}
           
 
      

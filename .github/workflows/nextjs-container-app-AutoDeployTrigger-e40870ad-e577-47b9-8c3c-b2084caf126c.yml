@@ -30,6 +30,7 @@ jobs:
           echo "NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL }}" >> $GITHUB_ENV
           echo "GH_ID=${{ secrets.GH_ID }}" >> $GITHUB_ENV
           echo "GH_SECRET=${{ secrets.GH_SECRET }}" >> $GITHUB_ENV
+          echo "NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}" >> $GITHUB_ENV
 
       - name: Azure Login
         uses: azure/login@v1
@@ -49,10 +50,12 @@ jobs:
           GH_ID: ${{ secrets.GH_ID }}
           GH_SECRET: ${{ secrets.GH_SECRET }}
           NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
+          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
         env:
           GH_ID: ${{ secrets.GH_ID }}
           GH_SECRET: ${{ secrets.GH_SECRET }}
           NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
+          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
           
 
      

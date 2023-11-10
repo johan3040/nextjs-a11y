@@ -1,5 +1,5 @@
 'use client';
-import Head from 'next/head';
+import { SessionProvider } from 'next-auth/react';
 
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -12,6 +12,13 @@ import { Html } from 'next/document';
 
 hljs.registerLanguage('javascript', javascript);
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
+  return (
+    <SessionProvider session={session}>
+      <Component {...pageProps} />
+    </SessionProvider>
+  );
 }

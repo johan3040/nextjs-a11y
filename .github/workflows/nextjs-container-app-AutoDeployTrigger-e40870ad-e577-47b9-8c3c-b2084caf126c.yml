@@ -46,10 +46,13 @@ jobs:
           containerAppName: nextjs-container-app
           resourceGroup: DefaultResourceGroup-CUS
           imageToBuild: johan3040.azurecr.io/nextjs-container-app:${{ github.sha }}
+          GH_ID: ${{ secrets.GH_ID }}
+          GH_SECRET: ${{ secrets.GH_SECRET }}
+          NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
         env:
           GH_ID: ${{ secrets.GH_ID }}
           GH_SECRET: ${{ secrets.GH_SECRET }}
-          NEXTAUTH_URL: https://nextjs-container-app.wonderfultree-762b11b9.eastus.azurecontainerapps.io/
+          NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
           
 
      

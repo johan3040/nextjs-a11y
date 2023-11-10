@@ -41,6 +41,9 @@ ENV NODE_ENV production
 ENV GH_ID=$GH_ID
 ENV GH_SECRET=$GH_SECRET
 ENV NEXTAUTH_SECRET=$NEXTAUTH_SECRET
+
+RUN echo "Secret: $NEXTAUTH_SECRET"
+
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
 

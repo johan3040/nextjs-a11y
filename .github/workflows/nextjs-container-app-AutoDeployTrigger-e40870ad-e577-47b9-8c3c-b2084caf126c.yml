@@ -21,6 +21,10 @@ jobs:
       - name: Checkout to the branch
         uses: actions/checkout@v2
 
+      - name: Verify ENV variables
+        run: |
+          echo "Nextauth url: $NEXTAUTH_URL"
+
       - name: Azure Login
         uses: azure/login@v1
         with:

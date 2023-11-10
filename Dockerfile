@@ -38,8 +38,8 @@ WORKDIR /app
 
 # Set environment variables
 ENV NODE_ENV production
-ENV GH_ID=$GITHUB_ID
-ENV GH_SECRET=$GITHUB_SECRET
+ENV GH_ID=$GH_ID
+ENV GH_SECRET=$GH_SECRET
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
 

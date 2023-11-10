@@ -4,15 +4,14 @@ name: Trigger auto deployment for nextjs-container-app
 on:
   # Automatically trigger it when detected changes in repo
   push:
-    branches: 
-      [ master ]
+    branches: [master]
     paths:
-    - '**'
-    - '.github/workflows/nextjs-container-app-AutoDeployTrigger-e40870ad-e577-47b9-8c3c-b2084caf126c.yml'
+      - '**'
+      - '.github/workflows/nextjs-container-app-AutoDeployTrigger-e40870ad-e577-47b9-8c3c-b2084caf126c.yml'
 
-  # Allow manual trigger 
+  # Allow manual trigger
   workflow_dispatch:
-      
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -40,23 +39,11 @@ jobs:
       - name: Build and push container image to registry
         uses: azure/container-apps-deploy-action@v2
         with:
-          appSourcePath: ${{ github.workspace }} 
+          appSourcePath: ${{ github.workspace }}
           registryUrl: johan3040.azurecr.io
           registryUsername: ${{ secrets.NEXTJSCONTAINERAPP_REGISTRY_USERNAME }}
           registryPassword: ${{ secrets.NEXTJSCONTAINERAPP_REGISTRY_PASSWORD }}
           containerAppName: nextjs-container-app
           resourceGroup: DefaultResourceGroup-CUS
           imageToBuild: johan3040.azurecr.io/nextjs-container-app:${{ github.sha }}
-          GH_ID: ${{ secrets.GH_ID }}
-          GH_SECRET: ${{ secrets.GH_SECRET }}
-          NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
-          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
-        env:
-          GH_ID: ${{ secrets.GH_ID }}
-          GH_SECRET: ${{ secrets.GH_SECRET }}
-          NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
-          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
-          
-
-     
-
+          environmentVariables: NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL }} GH_ID=${{ secrets.GH_ID }} GH_SECRET=${{ secrets.GH_SECRET }} NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}

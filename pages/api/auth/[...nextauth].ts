@@ -12,4 +12,6 @@ export const authOptions = {
   ],
 }
 
+console.log("This is my ID: " + process.env.GH_ID)
+
 export default NextAuth(authOptions)

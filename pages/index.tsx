@@ -8,7 +8,7 @@ import { Flex } from '../components/flex';
 
 const HomePage = ({ data }) => {
   const { data: session } = useSession();
-  console.log(session);
+
   return (
     <>
       <Head>
@@ -17,7 +17,9 @@ const HomePage = ({ data }) => {
       </Head>
       <header>
         <Flex justifyContent="space-between">
-          <h1 style={{ marginBottom: '1em' }}>Accessible components</h1>
+          <h1 style={{ marginBottom: '1em' }}>
+            Accessible components - {data.env}
+          </h1>
           {session ? (
             <button onClick={() => signOut()}>Sign out</button>
           ) : (
@@ -36,10 +38,11 @@ const HomePage = ({ data }) => {
 };
 
 export async function getServerSideProps() {
-  console.log(process.env.GITHUB_ID);
+  console.log(process.env.GH_ID, process.env.NODE_ENV);
   const data = JSON.stringify({
     time:
       new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
+    env: process.env.NODE_ENV,
   });
   return { props: { data } };
 }

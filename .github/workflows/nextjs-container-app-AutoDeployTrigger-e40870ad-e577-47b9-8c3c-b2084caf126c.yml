@@ -23,7 +23,7 @@ jobs:
 
       - name: Verify ENV variables
         run: |
-          echo "Nextauth url: $NEXTAUTH_URL"
+          echo "Nextauth url: ${{ secrets.NEXTAUTH_URL }}"
 
       - name: Azure Login
         uses: azure/login@v1

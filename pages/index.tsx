@@ -5,6 +5,7 @@ import { FormWrapper } from '../components/form/FormWrapper';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import Head from 'next/head';
 import { Flex } from '../components/flex';
+import Image from 'next/image';
 
 const HomePage = ({ data }) => {
   const { data: session } = useSession();
@@ -21,7 +22,18 @@ const HomePage = ({ data }) => {
             Accessible components - {data.env}
           </h1>
           {session ? (
-            <button onClick={() => signOut()}>Sign out</button>
+            <Flex alignItems="center" gap="0.5rem">
+              <Image
+                src={session.user.image}
+                alt="user avatar"
+                width={32}
+                height={32}
+              />
+              <p style={{ marginLeft: '0.5em' }}>
+                {session?.user.name || session?.user.email}
+              </p>
+              <button onClick={() => signOut()}>Sign out</button>
+            </Flex>
           ) : (
             <button onClick={() => signIn()}>Sign in</button>
           )}

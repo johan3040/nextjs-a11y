@@ -28,6 +28,7 @@ const HomePage = ({ data }) => {
                 alt="user avatar"
                 width={32}
                 height={32}
+                unoptimized
               />
               <p style={{ marginLeft: '0.5em' }}>
                 {session?.user.name || session?.user.email}

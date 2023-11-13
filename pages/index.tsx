@@ -19,7 +19,7 @@ const HomePage = ({ data }) => {
       <header>
         <Flex justifyContent="space-between">
           <h1 style={{ marginBottom: '1em' }}>
-            Accessible components - {data.env}
+            Accessible components
           </h1>
           {session ? (
             <Flex alignItems="center" gap="0.5rem">
@@ -51,11 +51,9 @@ const HomePage = ({ data }) => {
 };
 
 export async function getServerSideProps() {
-  console.log(process.env.GH_ID, process.env.NODE_ENV);
   const data = JSON.stringify({
     time:
-      new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
-    env: process.env.NODE_ENV,
+      new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString()
   });
   return { props: { data } };
 }
